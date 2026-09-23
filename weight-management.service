@@ -1,0 +1,14 @@
+[Unit]
+Description=Personal health record Gradio app
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/weight-management
+EnvironmentFile=-%h/.config/weight-management.env
+ExecStart=%h/.local/bin/python %h/weight-management/app.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
